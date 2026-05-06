@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkyCheck – Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Animated star background -->
+  <div class="stars" id="stars"></div>
+
+  <div class="app">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="brand">SkyCheck</div>
+      <div class="tagline">Live Weather · Any City · Anywhere</div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <input type="text" id="cityInput" placeholder="Search city..." />
+      <button id="searchBtn" onclick="getWeather()">GO</button>
+    </div>
+
+    <!-- Error message -->
+    <p class="error-msg" id="errorMsg"></p>
+
+    <!-- Loading spinner -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Fetching weather…</p>
+    </div>
+
+    <!-- Welcome screen (shown before search) -->
+    <div class="welcome" id="welcome">
+      <div class="welcome-icon">🌤️</div>
+      <h2>What's the weather like?</h2>
+      <p>Type any city above to get live weather data — temperature, humidity, wind, and more.</p>
+    </div>
+
+    <!-- Weather result card -->
+    <div class="card" id="weatherCard">
+
+      <!-- City + date -->
+      <div class="card-top">
+        <div>
+          <div class="city-name" id="cityName"></div>
+          <div class="country" id="countryName"></div>
+        </div>
+        <div class="date-block" id="dateBlock"></div>
+      </div>
+
+      <!-- Temperature hero -->
+      <div class="temp-hero">
+        <div class="weather-emoji" id="weatherEmoji">🌤️</div>
+        <div class="temp-wrap">
+          <span class="temp-num" id="tempNum">--</span>
+          <span class="temp-deg">°C</span>
+        </div>
+      </div>
+
+      <div class="condition" id="condition"></div>
+      <div class="feels" id="feelsLike"></div>
+
+      <!-- Min / Max bar -->
+      <div class="range-row">
+        <span class="range-min" id="tempMin"></span>
+        <div class="range-track">
+          <div class="range-fill" id="rangeFill"></div>
+        </div>
+        <span class="range-max" id="tempMax"></span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Stats grid -->
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-label">💧 Humidity</div>
+          <div class="stat-val"><span id="humidity">--</span><span class="stat-unit">%</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">💨 Wind</div>
+          <div class="stat-val"><span id="wind">--</span><span class="stat-unit">km/h</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">👁️ Visibility</div>
+          <div class="stat-val"><span id="visibility">--</span><span class="stat-unit">km</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">🌡️ Pressure</div>
+          <div class="stat-val"><span id="pressure">--</span><span class="stat-unit">hPa</span></div>
+        </div>
+      </div>
+
+      <!-- Sunrise / Sunset -->
+      <div class="sun-row">
+        <div class="sun-item">
+          <div class="sun-label">🌅 Sunrise</div>
+          <div class="sun-time" id="sunrise">--</div>
+        </div>
+        <div class="sun-divider"></div>
+        <div class="sun-item">
+          <div class="sun-label">🌇 Sunset</div>
+          <div class="sun-time" id="sunset">--</div>
+        </div>
+      </div>
+
+    </div><!-- end card -->
+
+    <div class="footer">Built with OpenWeatherMap API · My First Project 🚀</div>
+
+  </div><!-- end app -->
+
+  <script src="script.js"></script>
+</body>
+</html>
